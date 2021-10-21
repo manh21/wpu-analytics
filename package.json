@@ -1,0 +1,26 @@
+{
+  "name": "wpu-anayltics",
+  "version": "1.0.0",
+  "description": "WPU Discord Server Analytics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "WPU"
+  ],
+  "author": "Naufal Hakim",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@prisma/client": "^3.2.1",
+    "discord.js": "^13.2.0",
+    "dotenv": "^10.0.0",
+    "fuse.js": "^6.4.6",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.13"
+  },
+  "devDependencies": {
+    "prisma": "^3.2.1"
+  }
+}
