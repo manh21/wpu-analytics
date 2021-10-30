@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 
 function checkRoles(msg) {
     // Check if they have one of many roles
-    if(msg.member.roles.cache.some(role => JSON.parse(process.env.ROLE).includes(role.name)) ) {
+    if(msg.member.roles.cache.some(role => JSON.parse(process.env.ROLE).includes(role.id)) ) {
         return true;
     } else {
         return false;

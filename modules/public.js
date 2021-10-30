@@ -70,11 +70,15 @@ const Public = (msg, client) => {
     //     deleteMsg(msg);
     // }
 
-    if (command === 'rip') {
-        // Create the attachment using MessageAttachment
-        const attachment = new Discord.MessageAttachment('https://i.imgur.com/w3duR07.png');
-        // Send the attachment in the message channel
-        msg.channel.send({files: [attachment]});
+    if(command === 'u') {
+        if(!checkRoles(msg)) return;
+        let str = '';
+        for (let i = 0; i < args.length; i++) {
+            str += ` ${args[i]}`;
+        }
+
+        sendMsg(msg.channel, str);
+        deleteMsg(msg);
     }
 
     if(command === 'attach') {
@@ -88,56 +92,6 @@ const Public = (msg, client) => {
             msg.channel.send({ embed: [embedError(error)]});
         }
 
-        deleteMsg(msg);
-    }
-
-    if (command === 'oha') {
-        // https://cdn.discordapp.com/attachments/623432857720717312/623477443323494410/ohayou.jpg
-        const attachment = new Discord.MessageAttachment('https://cdn.discordapp.com/attachments/623432857720717312/623477443323494410/ohayou.jpg');
-
-        // Send the attachment in the message channel
-        sendMsg(msg.channel, {files: [attachment]});
-        deleteMsg(msg);
-    }
-
-    if (command === 'smsgif') {
-        const url = 'https://cdn.discordapp.com/attachments/500263112881078272/837629163132157952/sms.gif';
-        const attachment = new Discord.MessageAttachment(url);
-
-        // Send the attachment in the message channel
-        sendMsg(msg.channel, {files: [attachment]});
-        deleteMsg(msg);
-    }
-
-    if(command === 'fbi') {
-        const url = 'https://cdn.discordapp.com/attachments/543234827407720483/600950504641527820/fbi.jpg';
-        const attachment = new Discord.MessageAttachment(url);
-
-        sendMsg(msg.channel, {files: [attachment]});
-        deleteMsg(msg);
-    }
-
-    if(command === 'fbi2') {
-        const url = 'https://media.discordapp.net/attachments/819652513196146778/839914347118460938/based.gif';
-        const attachment = new Discord.MessageAttachment(url);
-
-        sendMsg(msg.channel, {files: [attachment]});
-        deleteMsg(msg);
-    }
-
-    if(command === 'bonk') {
-        const url = 'https://cdn.discordapp.com/attachments/360238813387292674/837624554615734272/bonk.gif';
-        const attachment = new Discord.MessageAttachment(url);
-
-        sendMsg(msg.channel, {files: [attachment]});
-        deleteMsg(msg);
-    }
-
-    if(msg.content.includes('konto!') || msg.content.includes('kontol')) {
-        const url = 'https://cdn.discordapp.com/attachments/500263112881078272/837625442831695872/kon.gif';
-        const attachment = new Discord.MessageAttachment(url);
-
-        sendMsg(msg.channel, {files: [attachment]});
         deleteMsg(msg);
     }
 };

@@ -1,9 +1,10 @@
 require('dotenv').config();
 const TOKEN = process.env.TOKEN;
-const { Client, Intents } = require('discord.js');
+const { Client, Intents, Sticker } = require('discord.js');
 
 const { Public } = require("./modules/public.js");
 const { Analytics } = require("./modules/analytics.js");
+const { Stickers } = require("./modules/stickers.js");
 const { embedLog, embedMsg, sendMsg, deleteMsg } = require("./modules/utility.js");
 const { PrismaClient }= require("@prisma/client");
 
@@ -24,6 +25,8 @@ const main = () => {
         Public(msg, client);
 
         Analytics(msg, client, prisma);
+        
+        Stickers(msg, client);
     });
 
     client.login(TOKEN);
